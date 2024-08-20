@@ -7,5 +7,3 @@
 3. ng add @angular/material
 
 4. npm install @angular/cdk
-
-5. 

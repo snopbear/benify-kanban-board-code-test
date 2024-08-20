@@ -1,9 +1,75 @@
 @import "../../../sass/2.variables";
+
+.add-task {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 2rem 3rem 0;
+  padding: 1.2rem;
+  background-color: var(--secondary-color);
+  border: 1px solid var(--primary-color);
+  border-radius: 0.4rem;
+  box-shadow: 0 1px 3px var(--card-shadow);
+
+  input[type="text"] {
+    flex: 2;
+    padding: 0.8rem;
+    margin-right: 0.8rem;
+    background-color: var(--secondary-color-m);
+    border: 1px solid var(--tertiary-color);
+    border-radius: 0.4rem;
+    color: var(--quinary-color);
+    font-family: "Lato", sans-serif;
+    font-size: 1.4rem;
+
+    &::placeholder {
+      color: var(--quaternary-color);
+    }
+  }
+
+  select {
+    flex: 1;
+    padding: 0.8rem;
+    margin-right: 0.8rem;
+    background-color: var(--secondary-color-m);
+    border: 1px solid var(--tertiary-color);
+    border-radius: 0.4rem;
+    color: var(--quinary-color);
+    font-family: "Lato", sans-serif;
+    font-size: 1.4rem;
+
+    option {
+      background-color: var(--secondary-color-m);
+      color: var(--quinary-color);
+    }
+  }
+
+  button {
+    padding: 0.8rem 1.6rem;
+    background-color: var(--primary-color);
+    border: none;
+    border-radius: 0.4rem;
+    color: var(--quinary-color);
+    font-family: "Lato", sans-serif;
+    font-size: 1.4rem;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      background-color: var(--tertiary-color);
+      box-shadow: 0 2px 6px var(--card-shadow);
+    }
+  }
+}
+
 .kanban {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
   padding: 1.6rem;
+  p {
+    width: 100%;
+  }
   &__column {
     flex: 1 1 30%;
     background-color: var(--secondary-color-m);
@@ -13,17 +79,21 @@
     padding: 1.6rem;
     box-shadow: 0 0.1rem 0.1rem var(--tertiary-color-m);
     transition: box-shadow 0.3s ease;
+
     &:hover {
       box-shadow: 0 0.4rem 1rem var(--card-shadow);
     }
 
     &--todo {
+      border-left: 4px solid var(--status-todo-text);
     }
 
     &--in-progress {
+      border-left: 4px solid var(--status-in-progress-text);
     }
 
     &--done {
+      border-left: 4px solid var(--status-done-text);
     }
   }
 
@@ -32,8 +102,7 @@
     font-size: 3rem;
     text-align: center;
     margin-bottom: 1.6rem;
-    font-size: font-size("font-size-regular");
-    font-family: font-family(lato);
+    font-family: "Lato", sans-serif;
   }
 
   &__list {
@@ -51,50 +120,111 @@
     cursor: move;
     transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s ease;
     box-shadow: 0 1px 3px var(--card-shadow);
-    font-family: font-family(lato);
-    font-size: font-size("font-size-small");
-        background-color: var(--secondary-color);
-
+    font-family: "Lato", sans-serif;
+    font-size: 1.4rem;
+    background-color: var(--secondary-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 
     &:hover {
       box-shadow: 0 2px 6px var(--card-shadow);
+      color: var(--primary-color);
     }
 
     &--todo {
       color: var(--status-todo-text);
-      box-shadow: 0 2px 6px var(--card-shadow);
     }
 
     &--in-progress {
       color: var(--status-in-progress-text);
-      box-shadow: 0 2px 6px var(--card-shadow);
     }
 
     &--done {
       color: var(--status-done-text);
-      box-shadow: 0 2px 6px var(--card-shadow);
     }
 
-    // Define hover states for items
     &--todo:hover {
-      background: var(
-        --status-todo-bg
-      ); /* A lighter blue specifically for hover */
-      color: var(--status-todo-text);
+      background-color: var(--tertiary-color);
     }
 
     &--in-progress:hover {
-      background: var(
-        --status-in-progress-bg
-      ); /* A lighter orange specifically for hover */
-      color: var(--status-in-progress-text);
+      background-color: var(--quaternary-color);
     }
 
     &--done:hover {
-      background: var(
-        --status-done-bg
-      ); /* A lighter green specifically for hover */
-      color: var(--status-done-text);
+      background-color: var(--tertiary-color-m);
+    }
+
+    &--editing {
+      background-color: var(--secondary-color-m);
+    }
+
+    .kanban__item--button-delete {
+      padding: 0.2rem 0.5rem;
+      background-color: var(--primary-color);
+      border: none;
+      border-radius: 0.4rem;
+      color: var(--quinary-color);
+      font-family: "Lato", sans-serif;
+      font-size: 1.4rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+      &:hover {
+        background-color: var(--tertiary-color);
+        box-shadow: 0 2px 6px var(--card-shadow);
+      }
+    }
+
+    .save-button,
+    .cancel-button {
+      padding: 0.2rem 0.5rem;
+      border: none;
+      border-radius: 0.4rem;
+      color: var(--quinary-color);
+      font-family: "Lato", sans-serif;
+      font-size: 1.4rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+
+      &:hover {
+        box-shadow: 0 2px 6px var(--card-shadow);
+      }
+    }
+
+    .save-button {
+      background-color: var(--primary-color); /* Save button background color */
+
+      &:hover {
+        background-color: var(--tertiary-color);
+      }
+    }
+
+    .cancel-button {
+      background-color: var(
+        --tertiary-color-m
+      ); /* Cancel button background color */
+
+      &:hover {
+        background-color: var(--quaternary-color);
+      }
+    }
+  }
+
+  .kanban__item input[type="text"] {
+    flex: 1;
+    padding: 0.8rem;
+    margin-right: 0.8rem;
+    background-color: var(--quaternary-color-m);
+    border: 1px solid var(--tertiary-color);
+    border-radius: 0.4rem;
+    color: var(--quinary-color);
+    font-family: "Lato", sans-serif;
+    font-size: 1.4rem;
+
+    &::placeholder {
+      color: var(--quaternary-color);
     }
   }
 }
