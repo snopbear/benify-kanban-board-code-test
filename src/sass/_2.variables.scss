@@ -1,0 +1,97 @@
+:root {
+  font-size: 62.5%;
+
+  /************ Custom Properties ***********/
+
+  /* color  palette url
+https://coolors.co/palette/e5e5e5-c4d1de-778490-444c57-373e47-22272e-161b22
+*/
+
+  /* Main Color */
+  --primary-color: #000;
+  /* Secondary Color */
+  --secondary-color: #22272E;
+  /* Secondary Color Modified */
+  --secondary-color-m: #161B22;
+  /* tertiary color */
+  --tertiary-color: #001524;
+  /* tertiary color modified */
+  --tertiary-color-m: #373E47;
+  /* quaternary color  */
+  --quaternary-color: #444C57;
+  /* quaternary color modified */
+  --quaternary-color-m: #778490;
+  /* quinary color  */
+  --quinary-color: #fff;
+  /* quinary color modified */
+  --quinary-color-m: #E5E5E5;
+
+  /* Transition cubic  */
+  --transition-cubic: color 0.35s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+  /* Transform cubic  */
+  --transform-cubic: transform 0.35s cubic-bezier(0.645, -0.45, 0.355, 1);
+
+  /* transition  */
+  --transition: all 0.4s ease-in-out;
+
+  /* Transition Duration */
+  --transition-duration: 0.3s;
+
+  /* Transform Duration */
+  --transform-duration: transform 0.45s;
+
+  /* Transform Duration ease-in-out */
+  --transform-duration: transform 0.45s ease-in-out;
+
+}
+
+//*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* Font Family *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+$font-family: (
+  "baloo-tamma": "Baloo Tamma 2",
+  "indie-flower": "Indie Flower",
+);
+
+@function font-family($font-family-name) {
+  @return map-get($font-family, $font-family-name);
+}
+
+//*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* Font Weights *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+$font-weights: (
+  "font-weight-thin": 100,
+  "font-weight-light": 300,
+  "font-weight-regular": 400,
+  "font-weight-medium": 500,
+  "font-weight-bold": 700,
+  "font-weight-black": 900,
+);
+
+@function font-weight($font-weight-style) {
+  @return map-get($font-weights, $font-weight-style);
+}
+
+//*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* Font Sizes *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+$font-sizes: (
+  "font-size-small": calc(1.2rem + 0.5vw),
+  "font-size-small-to-regular": calc(1rem + 0.66667vw),
+  "font-size-regular": calc(1.5rem + 1vw),
+  "font-size-medium": calc(1.5rem + 2vw),
+  "font-size-large": calc(1.5rem + 5vw),
+  "font-size-xlarge": calc(2.5rem + 5vw),
+);
+
+@function font-size($font-size-style) {
+  @return map-get($font-sizes, $font-size-style);
+}
+
+//*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* Break Points *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
+$break-points: (
+  "break-point-small": 400px,
+  "break-point-medium": 600px,
+  "break-point-tablet": 800px,
+  "break-point-desktop": 1920px,
+);
+
+@function break-point($break-point-limit) {
+  @return map-get($break-points, $break-point-limit);
+}

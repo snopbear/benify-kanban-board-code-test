@@ -1,0 +1,15 @@
+<header class="header">
+  <nav class="header__main-nav" #hamburgerContainer>
+    <div class="header__main-nav--hamburger" #hamburger (click)="toggleMenu()">
+      <div class="header__main-nav--hamburger__line line-1"></div>
+      <div class="header__main-nav--hamburger__line line-2"></div>
+      <div class="header__main-nav--hamburger__line line-3"></div>
+    </div>
+
+    <ul class="header__main-nav--link">
+      <li class="header__main-nav--link__item" *ngFor="let link of links" [ngClass]="{'fade': menuOpen}">
+        <a [routerLink]="link.url" routerLinkActive="active">{{ link.name }}</a>
+      </li>
+    </ul>
+  </nav>
+</header>

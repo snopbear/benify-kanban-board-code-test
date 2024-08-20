@@ -1,0 +1,166 @@
+@import "../../../../sass/4.mixin"; // or wherever your mixins/variables are defined
+
+/*-*-*-*-*-*-*-*--*-*-*- Start Header Section --*-*-*-*-*-*-*-*-*-*-*/
+.header {
+  background-color: var(--secondary-color);
+  height: calc(3vw + 3vh);
+  z-index: 2;
+  border-bottom: 1px solid var(--tertiary-color-m);
+  &__main-nav {
+    height: 100%;
+    &--link {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: flex-end;
+      align-items: center;
+      & li {
+        padding-right: 3vw;
+        & a {
+          position: relative;
+          padding: 0.2rem 0.6rem;
+          padding-right: 3vw;
+          font-size: font-size(font-size-small-to-regular);
+          &:link::before,
+          &:visited::before,
+          &:link::after,
+          &:visited::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            width: 100%;
+            height: 0.25rem;
+            background-color: var(--quinary-color);
+            transform: scaleX(0);
+            transition: transform 0.6s cubic-bezier(1, 0, 0, 1);
+          }
+          :link::before,
+          &:visited::before {
+            top: 0;
+
+            // transform origin is center by default
+            transform-origin: left;
+          }
+          &:link::after,
+          &:visited::after {
+            bottom: 0;
+            // transform origin is center by default
+            transform-origin: right;
+          }
+
+          &:hover::before,
+          &:active::before,
+          &:hover::after,
+          &:active::after {
+            transform: scaleX(1);
+          }
+        }
+      }
+    }
+  }
+  @include media-medium {
+    position: absolute;
+    &__main-nav {
+      width: 30rem;
+      height: 100%;
+      position: fixed;
+      top: 0;
+      right: -30rem;
+      background-color: var(--secondary-color);
+      text-align: center;
+      border-left: 1px solid var(--tertiary-color-m);
+      transition: right 0.8s ease; // Slide-in animation for the menu
+
+      &--hamburger {
+        width: 5rem;
+        height: 5rem;
+        position: fixed;
+        top: 2rem;
+        right: 3rem;
+        cursor: pointer;
+        background-color: var(--secondary-color);
+        padding: 1rem;
+        border-radius: 50%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        transition: transform 0.5s ease;
+
+        &__line {
+          width: 100%;
+          height: 0.3rem;
+          background-color: var(--quinary-color);
+          border-radius: 0.2rem;
+          transition: var(--transition-cubic);
+
+          .line-1 {
+            transform: rotateZ(-405deg) translate(-0.8rem, 0.6rem);
+          }
+          .line-2 {
+            opacity: 0;
+          }
+          .line-3 {
+            transform: rotateZ(405deg) translate(-0.8rem, -0.6rem);
+          }
+        }
+      }
+      &--link {
+        height: 100%;
+        background-color: var(--secondary-color);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        & li {
+          margin-bottom: 4vh;
+          margin-left: 6vw;
+        }
+        &__item {
+          opacity: 0;
+
+          &:nth-child(1) {
+            transition: all 0.5s ease-in-out 0.2s;
+          }
+
+          &:nth-child(2) {
+            transition: all 0.5s ease-in-out 0.4s;
+          }
+
+          &:nth-child(3) {
+            transition: all 0.5s ease-in-out 0.6s;
+          }
+
+          &:nth-child(4) {
+            transition: all 0.5s ease-in-out 0.8s;
+          }
+
+          &:nth-child(5) {
+            transition: all 0.5s ease-in-out 1s;
+          }
+
+          &:nth-child(6) {
+            transition: all 0.5s ease-in-out 1.2s;
+          }
+        }
+      }
+    }
+  }
+}
+
+/*-*-*-*-*-*-*-*--*-*-*- End Header Section --*-*-*-*-*-*-*-*-*-*-*/
+
+/*-*-*-*-*-*-*-*--*-*-*- Start single class for animation--*-*-*-*-*-*-*-*-*-*-*/
+
+.clicked {
+  left: 55%;
+  transition: right 0.8s ease; // Slide-in animation for the menu
+  transform: translateX(1); // Menu items slide in
+}
+.fade {
+  opacity: 1;
+  transform: translateX(0); // Menu items slide in
+}
+.open {
+  right: 0; // Slide the menu into view
+}
+/*-*-*-*-*-*-*-*--*-*-*- End single class for animation--*-*-*-*-*-*-*-*-*-*-*/
