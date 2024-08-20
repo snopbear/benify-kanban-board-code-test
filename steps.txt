@@ -1,1 +1,11 @@
-ng build  --base-href https://snopbear.github.io/benify-kanban-board-code-test/
+0. npm run start
+
+1. ng build  --base-href https://snopbear.github.io/benify-kanban-board-code-test/
+
+2. npm i json-server@0.17.3
+
+3. ng add @angular/material
+
+4. npm install @angular/cdk
+
+5. 

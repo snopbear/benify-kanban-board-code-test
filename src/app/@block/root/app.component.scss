@@ -2,7 +2,7 @@
   display: flex;
   & main {
     flex-grow: 1;
-      background: #22272e;
+      background: var(--secondary-color);
 
   }
 }

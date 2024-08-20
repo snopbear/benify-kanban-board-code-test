@@ -1,0 +1,100 @@
+@import "../../../sass/2.variables";
+.kanban {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 1.6rem;
+  &__column {
+    flex: 1 1 30%;
+    background-color: var(--secondary-color-m);
+    border: 1px solid var(--primary-color);
+    border-radius: 0.8rem;
+    margin: 1.6rem;
+    padding: 1.6rem;
+    box-shadow: 0 0.1rem 0.1rem var(--tertiary-color-m);
+    transition: box-shadow 0.3s ease;
+    &:hover {
+      box-shadow: 0 0.4rem 1rem var(--card-shadow);
+    }
+
+    &--todo {
+    }
+
+    &--in-progress {
+    }
+
+    &--done {
+    }
+  }
+
+  &__title {
+    color: var(--quinary-color);
+    font-size: 3rem;
+    text-align: center;
+    margin-bottom: 1.6rem;
+    font-size: font-size("font-size-regular");
+    font-family: font-family(lato);
+  }
+
+  &__list {
+    min-height: 30rem;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+  }
+
+  &__item {
+    border: 1px solid var(--primary-color);
+    border-radius: 0.4rem;
+    margin: 0.8rem 0;
+    padding: 1.2rem;
+    cursor: move;
+    transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s ease;
+    box-shadow: 0 1px 3px var(--card-shadow);
+    font-family: font-family(lato);
+    font-size: font-size("font-size-small");
+        background-color: var(--secondary-color);
+
+
+    &:hover {
+      box-shadow: 0 2px 6px var(--card-shadow);
+    }
+
+    &--todo {
+      color: var(--status-todo-text);
+      box-shadow: 0 2px 6px var(--card-shadow);
+    }
+
+    &--in-progress {
+      color: var(--status-in-progress-text);
+      box-shadow: 0 2px 6px var(--card-shadow);
+    }
+
+    &--done {
+      color: var(--status-done-text);
+      box-shadow: 0 2px 6px var(--card-shadow);
+    }
+
+    // Define hover states for items
+    &--todo:hover {
+      background: var(
+        --status-todo-bg
+      ); /* A lighter blue specifically for hover */
+      color: var(--status-todo-text);
+    }
+
+    &--in-progress:hover {
+      background: var(
+        --status-in-progress-bg
+      ); /* A lighter orange specifically for hover */
+      color: var(--status-in-progress-text);
+    }
+
+    &--done:hover {
+      background: var(
+        --status-done-bg
+      ); /* A lighter green specifically for hover */
+      color: var(--status-done-text);
+    }
+  }
+}

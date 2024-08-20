@@ -25,12 +25,10 @@
     justify-content: center;
     align-items: center;
     z-index: 0;
-
     p {
       font-size: 2rem;
       color: var(--quinary-color);
     }
-
     &--square {
       position: relative;
       margin: 0 10px;
@@ -39,11 +37,9 @@
       display: flex;
       justify-content: center;
       align-items: center;
-
       &:hover {
         color: var(--quinary-color);
       }
-
       &__one,
       &__two,
       &__three {
@@ -54,31 +50,26 @@
         transition: 0.5s;
         animation: animate 6s linear infinite;
       }
-
       &__one {
         border-radius: 32% 58% 69% 43% / 48% 32% 59% 55%;
       }
-
       &__two {
         top: 0;
         left: 0;
         border-radius: 38% 62% 63% 37% / 41% 44% 56% 59%;
       }
-
       &__three {
         top: 0;
         left: 0;
         border-radius: 31% 45% 74% 35% / 38% 56% 51% 37%;
         animation: animate2 10s linear infinite;
       }
-
       &__circle {
         position: relative;
         padding: 4rem 6rem;
         text-align: center;
         transition: 0.5s;
         z-index: 1000;
-
         &--drugRadar {
           font-size: 5rem;
         }
@@ -99,7 +90,7 @@
       letter-spacing: 0.3rem;
       text-decoration: none;
       font-size: 2rem;
-      font-family: "Arial";
+        font-family: font-family(Lato) ;
       position: relative;
       text-transform: uppercase;
       color: var(--quinary-color);

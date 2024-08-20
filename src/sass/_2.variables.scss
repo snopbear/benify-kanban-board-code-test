@@ -8,29 +8,42 @@ https://coolors.co/palette/e5e5e5-c4d1de-778490-444c57-373e47-22272e-161b22
 */
 
   /* Main Color */
-  --primary-color: #000;
+  --primary-color: #282828;
   /* Secondary Color */
-  --secondary-color: #22272E;
+  --secondary-color: #3f3f3f;
   /* Secondary Color Modified */
-  --secondary-color-m: #161B22;
+  --secondary-color-m: #575757;
   /* tertiary color */
-  --tertiary-color: #001524;
+  --tertiary-color: #575757;
   /* tertiary color modified */
-  --tertiary-color-m: #373E47;
+  --tertiary-color-m: #717171;
   /* quaternary color  */
-  --quaternary-color: #444C57;
+  --quaternary-color: #8b8b8b;
   /* quaternary color modified */
   --quaternary-color-m: #778490;
   /* quinary color  */
   --quinary-color: #fff;
-  /* quinary color modified */
-  --quinary-color-m: #E5E5E5;
 
-  /* Transition cubic  */
-  --transition-cubic: color 0.35s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  /* Accent Color */
+  --accent-color: #007bff; /* Blue */
 
-  /* Transform cubic  */
-  --transform-cubic: transform 0.35s cubic-bezier(0.645, -0.45, 0.355, 1);
+  /* Shadow */
+  --card-shadow: rgba(0, 0, 0, 0.1);
+
+
+
+  /* Text Colors */
+  --status-todo-text: #E5E5E5; /* Darker blue for "To Do" text */
+  --status-in-progress-text: #2bb432; /* Darker orange for "In Progress" text */
+  --status-done-text: #a078fd; /* Darker green for "Done" text */
+
+
+
+
+
+
+
+
 
   /* transition  */
   --transition: all 0.4s ease-in-out;
@@ -48,9 +61,10 @@ https://coolors.co/palette/e5e5e5-c4d1de-778490-444c57-373e47-22272e-161b22
 
 //*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* Font Family *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 $font-family: (
-  "baloo-tamma": "Baloo Tamma 2",
-  "indie-flower": "Indie Flower",
+  "oswald": "Oswald",
+  "lato": "Lato",
 );
+
 
 @function font-family($font-family-name) {
   @return map-get($font-family, $font-family-name);

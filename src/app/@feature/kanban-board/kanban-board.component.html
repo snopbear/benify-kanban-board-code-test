@@ -1,0 +1,37 @@
+<div class="kanban">
+  <div class="kanban__column kanban__column--todo">
+    <h2 class="kanban__title">To Do</h2>
+    <div cdkDropList #todoList="cdkDropList" [cdkDropListData]="getTasksByStatus('To Do')"
+      [cdkDropListConnectedTo]="[inProgressList, doneList]" class="kanban__list"
+      (cdkDropListDropped)="onDropTask($event, 'To Do')">
+      <div *ngFor="let task of getTasksByStatus('To Do')" cdkDrag [cdkDragData]="task"
+        class="kanban__item kanban__item--todo">
+        {{ task.title }}
+      </div>
+    </div>
+  </div>
+
+  <div class="kanban__column kanban__column--in-progress">
+    <h2 class="kanban__title">In Progress</h2>
+    <div cdkDropList #inProgressList="cdkDropList" [cdkDropListData]="getTasksByStatus('In Progress')"
+      [cdkDropListConnectedTo]="[todoList, doneList]" class="kanban__list"
+      (cdkDropListDropped)="onDropTask($event, 'In Progress')">
+      <div *ngFor="let task of getTasksByStatus('In Progress')" cdkDrag [cdkDragData]="task"
+        class="kanban__item kanban__item--in-progress">
+        {{ task.title }}
+      </div>
+    </div>
+  </div>
+
+  <div class="kanban__column kanban__column--done">
+    <h2 class="kanban__title">Done</h2>
+    <div cdkDropList #doneList="cdkDropList" [cdkDropListData]="getTasksByStatus('Done')"
+      [cdkDropListConnectedTo]="[todoList, inProgressList]" class="kanban__list"
+      (cdkDropListDropped)="onDropTask($event, 'Done')">
+      <div *ngFor="let task of getTasksByStatus('Done')" cdkDrag [cdkDragData]="task"
+        class="kanban__item kanban__item--done">
+        {{ task.title }}
+      </div>
+    </div>
+  </div>
+</div>

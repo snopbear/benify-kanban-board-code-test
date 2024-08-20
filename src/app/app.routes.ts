@@ -13,8 +13,8 @@ export const routes: Routes = [
   {
     path: 'dashboard',
     loadComponent: () =>
-      import('./@feature/dashboard/dashboard.component').then(
-        (x) => x.DashboardComponent
+      import('./@feature/kanban-board/kanban-board.component').then(
+        (x) => x.KanbanBoardComponent
       ),
   },
 
