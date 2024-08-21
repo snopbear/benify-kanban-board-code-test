@@ -23,6 +23,7 @@
       color: var(--quinary-color);
       font-family: font-family(exo2);
       font-size: font-size(font-size-small-x);
+      outline: none;
       &::placeholder {
         color: var(--quaternary-color);
         font-family: font-family(exo2);
@@ -160,13 +161,11 @@
       }
 
       &__button-delete {
-        padding: 0.4rem 0.7rem;
+        padding: 0.4rem 0.8rem;
         background-color: var(--status-todo-text);
         border: none;
         border-radius: 0.4rem;
         color: var(--quinary-color);
-        cursor: pointer;
-        transition: background-color 0.3s ease, box-shadow 0.3s ease;
         cursor: pointer;
         &:hover {
           background-color: var(--status-todo-text);

@@ -14,7 +14,8 @@ export class HeaderComponent {
 
   links: { name: string; url: string }[] = [
     { name: 'Overview', url: '/overview' },
-    { name: 'Dashboard / Signals', url: '/dashboard-signals' },
+    { name: 'Dashboard - Signals', url: '/dashboard-signals' },
+    { name: 'Dashboard - NGRX', url: '/dashboard-ngrx' },
   ];
 
   menuOpen: boolean = false;
