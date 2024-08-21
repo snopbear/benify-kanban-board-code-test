@@ -3,9 +3,7 @@
 
   /************ Custom Properties ***********/
 
-  /* color  palette url
-https://colorffy.com/dark-theme-generator
-*/
+  /* color  palette url  https://colorffy.com/dark-theme-generator */
 
   /* Main Color */
   --primary-color: #282828;
@@ -23,25 +21,14 @@ https://colorffy.com/dark-theme-generator
   --quaternary-color-m: #778490;
   /* quinary color  */
   --quinary-color: #fff;
-
-
   /* Shadow */
   --card-shadow: rgba(0, 0, 0, 0.1);
-
-
-
+  /*Stroke*/
+  --stroke: #142432;
   /* Text Colors */
-  --status-todo-text: #E5E5E5; /* Darker blue for "To Do" text */
-  --status-in-progress-text: #2bb432; /* Darker orange for "In Progress" text */
-  --status-done-text: #a078fd; /* Darker green for "Done" text */
-
-
-
-
-
-
-
-
+  --status-todo-text: #ff5656; /* "To Do" text */
+  --status-in-progress-text: #d9ff00; /* "In Progress" text */
+  --status-done-text: #2bb432; /* "Done" text */
 
   /* transition  */
   --transition: all 0.4s ease-in-out;
@@ -54,15 +41,13 @@ https://colorffy.com/dark-theme-generator
 
   /* Transform Duration ease-in-out */
   --transform-duration: transform 0.45s ease-in-out;
-
 }
 
 //*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* Font Family *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 $font-family: (
-  "oswald": "Oswald",
-  "lato": "Lato",
+  "exo2": "Exo 2",
+  "dosis": "Dosis"
 );
-
 
 @function font-family($font-family-name) {
   @return map-get($font-family, $font-family-name);
@@ -84,6 +69,7 @@ $font-weights: (
 
 //*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* Font Sizes *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*
 $font-sizes: (
+  "font-size-small-x": calc(0.5rem + 0.5vw),
   "font-size-small": calc(1.2rem + 0.5vw),
   "font-size-small-to-regular": calc(1rem + 0.66667vw),
   "font-size-regular": calc(1.5rem + 1vw),

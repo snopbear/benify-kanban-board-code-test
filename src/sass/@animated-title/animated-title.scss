@@ -1,0 +1,22 @@
+@import "../2.variables";
+.animated-title {
+  font-family: font-family(dosis);
+  font-size: calc(0.6vw + 0.6vh);
+  font-weight: font-weight(font-weight-regular);
+  color: var(--quinary-color);
+  text-align: center;
+  /* Animation properties */
+  animation: fadeInSlideUp 2s ease-in-out forwards;
+}
+
+/* Keyframes for fade-in and slide-up effect */
+@keyframes fadeInSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(10px); /* Start slightly below */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* End at normal position */
+  }
+}

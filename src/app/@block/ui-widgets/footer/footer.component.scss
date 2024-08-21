@@ -1,0 +1,13 @@
+@import "./../../../../sass/_2.variables.scss";
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  text-align: center;
+  p {
+    font-family: font-family(dosis);
+    font-size: font-size(font-size-small-x);
+    color: var(--quinary-color);
+  }
+}

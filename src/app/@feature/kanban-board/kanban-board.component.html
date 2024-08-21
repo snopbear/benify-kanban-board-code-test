@@ -1,86 +1,105 @@
+<!-- *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* Start Kanban Board *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* -->
+
 <div class="board-container">
 
-<div class="board-container__add-task">
-  <input type="text" placeholder="New task title" [(ngModel)]="newTaskTitle" />
-  <select [(ngModel)]="newTaskStatus">
-    <option value="To Do">To Do</option>
-    <option value="In Progress">In Progress</option>
-    <option value="Done">Done</option>
-  </select>
-  <button (click)="addTask(newTaskTitle, newTaskStatus)" [disabled]="!newTaskTitle.trim()">
-    Add Task
-  </button>
-</div>
+  <div class="board-container__add-task">
+    <input class="board-container__add-task--input" type="text" placeholder="New task title"
+      [(ngModel)]="newTaskTitle" />
+    <select class="board-container__add-task--select" [(ngModel)]="newTaskStatus">
+      <option value="To Do">To Do</option>
+      <option value="In Progress">In Progress</option>
+      <option value="Done">Done</option>
+    </select>
+    <button class="board-container__add-task--button" (click)="addTask(newTaskTitle, newTaskStatus)"
+      [disabled]="!newTaskTitle.trim()">
+      Add Task
+    </button>
+  </div>
 
-<div class="kanban">
-  <!-- To Do Column -->
-  <div class="kanban__column kanban__column--todo">
-    <h2 class="kanban__title">To Do</h2>
-    <div cdkDropList #todoList="cdkDropList" [cdkDropListData]="getTasksByStatus('To Do')"
-      [cdkDropListConnectedTo]="[inProgressList, doneList]" class="kanban__list"
-      (cdkDropListDropped)="onDropTask($event, 'To Do')">
-      <div *ngFor="let task of getTasksByStatus('To Do')" cdkDrag [cdkDragData]="task"
-        class="kanban__item kanban__item--todo" [ngClass]="{ 'kanban__item--editing': editingTaskId === task.id }">
-        <ng-container *ngIf="editingTaskId === task.id; else viewModeTodo">
-          <input type="text" [value]="task.title" (keydown.enter)="saveTask(task, $event.target)"
-            (blur)="cancelEditing()" autofocus />
+  <div class="board-container__kanban">
+    <!-- To Do Column -->
+    <div class="board-container__kanban--column board-container__kanban--column__todo">
+      <h2 class="board-container__kanban--title">To Do</h2>
+      <div cdkDropList #todoList="cdkDropList" [cdkDropListData]="getTasksByStatus('To Do')"
+        [cdkDropListConnectedTo]="[inProgressList, doneList]" class="board-container__kanban--list"
+        (cdkDropListDropped)="onDropTask($event, 'To Do')">
+        <div *ngFor="let task of getTasksByStatus('To Do')" cdkDrag [cdkDragData]="task"
+          class="board-container__kanban--item board-container__kanban--item__todo"
+          [ngClass]="{ 'board-container__kanban--item__editing': editingTaskId === task.id }">
+          <ng-container *ngIf="editingTaskId === task.id; else viewModeTodo">
+            <input class="board-container__kanban--input" type="text" [value]="task.title"
+              (keydown.enter)="saveTask(task, $event.target)" (blur)="cancelEditing()" autofocus />
 
-        </ng-container>
-        <ng-template #viewModeTodo>
-          <p (dblclick)="startEditing(task)">{{ task.title }}</p>
-          <button class="kanban__item--button-delete" (click)="deleteTask(task)">
-            X
-          </button>
-        </ng-template>
+          </ng-container>
+          <ng-template #viewModeTodo>
+            <p (dblclick)="startEditing(task)" class=" tooltip animated-title">
+              {{ task.title }}
+              <span class="tooltiptext">Double click to edit!</span>
+            </p>
+            <button class="board-container__kanban--item__button-delete" (click)="deleteTask(task)">
+              x
+            </button>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+
+    <!-- In Progress Column -->
+    <div class="board-container__kanban--column board-container__kanban--column__in-progress">
+      <h2 class="board-container__kanban--title">In Progress</h2>
+      <div cdkDropList #inProgressList="cdkDropList" [cdkDropListData]="getTasksByStatus('In Progress')"
+        [cdkDropListConnectedTo]="[todoList, doneList]" class="board-container__kanban--list"
+        (cdkDropListDropped)="onDropTask($event, 'In Progress')">
+        <div *ngFor="let task of getTasksByStatus('In Progress')" cdkDrag [cdkDragData]="task"
+          class="board-container__kanban--item board-container__kanban--item__in-progress"
+          [ngClass]="{ 'board-container__kanban--item__editing': editingTaskId === task.id }">
+          <ng-container *ngIf="editingTaskId === task.id; else viewModeInProgress">
+            <input class="board-container__kanban--input" type="text" [value]="task.title"
+              (keydown.enter)="saveTask(task, $event.target)" (blur)="cancelEditing()" autofocus />
+
+          </ng-container>
+          <ng-template #viewModeInProgress>
+            <p (dblclick)="startEditing(task)" class=" tooltip animated-title">
+              {{ task.title }}
+              <span class="tooltiptext">Double click to edit!</span>
+            </p>
+
+            <button class="board-container__kanban--item__button-delete" (click)="deleteTask(task)">
+              x
+            </button>
+          </ng-template>
+        </div>
+      </div>
+    </div>
+
+    <!-- Done Column -->
+    <div class="board-container__kanban--column board-container__kanban--column__done">
+      <h2 class="board-container__kanban--title">Done</h2>
+      <div cdkDropList #doneList="cdkDropList" [cdkDropListData]="getTasksByStatus('Done')"
+        [cdkDropListConnectedTo]="[todoList, inProgressList]" class="board-container__kanban--list"
+        (cdkDropListDropped)="onDropTask($event, 'Done')">
+        <div *ngFor="let task of getTasksByStatus('Done')" cdkDrag [cdkDragData]="task"
+          class="board-container__kanban--item board-container__kanban--item__done"
+          [ngClass]="{ 'board-container__kanban--item__editing': editingTaskId === task.id }">
+          <ng-container *ngIf="editingTaskId === task.id; else viewModeDone">
+            <input class="board-container__kanban--input" type="text" [value]="task.title"
+              (keydown.enter)="saveTask(task, $event.target)" (blur)="cancelEditing()" autofocus />
+
+          </ng-container>
+          <ng-template #viewModeDone>
+
+
+            <p (dblclick)="startEditing(task)" class=" tooltip animated-title">
+              {{ task.title }}
+              <span class="tooltiptext">Double click to edit!</span>
+            </p>
+            <button class="board-container__kanban--item__button-delete" (click)="deleteTask(task)">
+              x
+            </button>
+          </ng-template>
+        </div>
       </div>
     </div>
   </div>
-
-  <!-- In Progress Column -->
-  <div class="kanban__column kanban__column--in-progress">
-    <h2 class="kanban__title">In Progress</h2>
-    <div cdkDropList #inProgressList="cdkDropList" [cdkDropListData]="getTasksByStatus('In Progress')"
-      [cdkDropListConnectedTo]="[todoList, doneList]" class="kanban__list"
-      (cdkDropListDropped)="onDropTask($event, 'In Progress')">
-      <div *ngFor="let task of getTasksByStatus('In Progress')" cdkDrag [cdkDragData]="task"
-        class="kanban__item kanban__item--in-progress"
-        [ngClass]="{ 'kanban__item--editing': editingTaskId === task.id }">
-        <ng-container *ngIf="editingTaskId === task.id; else viewModeInProgress">
-          <input type="text" [value]="task.title" (keydown.enter)="saveTask(task, $event.target)"
-            (blur)="cancelEditing()" autofocus />
-
-        </ng-container>
-        <ng-template #viewModeInProgress>
-          <p (dblclick)="startEditing(task)">{{ task.title }}</p>
-          <button class="kanban__item--button-delete" (click)="deleteTask(task)">
-            X
-          </button>
-        </ng-template>
-      </div>
-    </div>
-  </div>
-
-  <!-- Done Column -->
-  <div class="kanban__column kanban__column--done">
-    <h2 class="kanban__title">Done</h2>
-    <div cdkDropList #doneList="cdkDropList" [cdkDropListData]="getTasksByStatus('Done')"
-      [cdkDropListConnectedTo]="[todoList, inProgressList]" class="kanban__list"
-      (cdkDropListDropped)="onDropTask($event, 'Done')">
-      <div *ngFor="let task of getTasksByStatus('Done')" cdkDrag [cdkDragData]="task"
-        class="kanban__item kanban__item--done" [ngClass]="{ 'kanban__item--editing': editingTaskId === task.id }">
-        <ng-container *ngIf="editingTaskId === task.id; else viewModeDone">
-          <input type="text" [value]="task.title" (keydown.enter)="saveTask(task, $event.target)"
-            (blur)="cancelEditing()" autofocus />
-
-        </ng-container>
-        <ng-template #viewModeDone>
-          <p (dblclick)="startEditing(task)">{{ task.title }}</p>
-          <button class="kanban__item--button-delete" (click)="deleteTask(task)">
-            X
-          </button>
-        </ng-template>
-      </div>
-    </div>
-  </div>
 </div>
-</div>
+<!-- *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* End Kanban Board *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* -->

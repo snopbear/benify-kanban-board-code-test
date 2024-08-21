@@ -5,7 +5,7 @@
   background-color: var(--secondary-color);
   height: calc(3vw + 3vh);
   z-index: 2;
-  border-bottom: 1px solid var(--tertiary-color-m);
+  border-bottom: 0.1rem solid var(--tertiary-color-m);
   &__main-nav {
     height: 100%;
     &--link {
@@ -20,7 +20,7 @@
           position: relative;
           padding: 0.2rem 0.6rem;
           padding-right: 3vw;
-          font-size: font-size(font-size-small-to-regular);
+          font-size: font-size(font-size-small);
           &:link::before,
           &:visited::before,
           &:link::after,
@@ -37,7 +37,6 @@
           :link::before,
           &:visited::before {
             top: 0;
-
             // transform origin is center by default
             transform-origin: left;
           }
@@ -47,7 +46,6 @@
             // transform origin is center by default
             transform-origin: right;
           }
-
           &:hover::before,
           &:active::before,
           &:hover::after,
@@ -68,7 +66,7 @@
       right: -30rem;
       background-color: var(--secondary-color);
       text-align: center;
-      border-left: 1px solid var(--tertiary-color-m);
+      border-left: 0.1rem solid var(--tertiary-color-m);
       transition: right 0.8s ease; // Slide-in animation for the menu
 
       &--hamburger {
@@ -149,7 +147,7 @@
 
 /*-*-*-*-*-*-*-*--*-*-*- End Header Section --*-*-*-*-*-*-*-*-*-*-*/
 
-/*-*-*-*-*-*-*-*--*-*-*- Start single class for animation--*-*-*-*-*-*-*-*-*-*-*/
+/*-*-*-*-*-*-*-*--*-*-*- Start single class for animation based on actions in html and typescript--*-*-*-*-*-*-*-*-*-*-*/
 
 .clicked {
   left: 55%;
@@ -163,4 +161,4 @@
 .open {
   right: 0; // Slide the menu into view
 }
-/*-*-*-*-*-*-*-*--*-*-*- End single class for animation--*-*-*-*-*-*-*-*-*-*-*/
+/*-*-*-*-*-*-*-*--*-*-*- End single class for animation based on actions in html and typescript--*-*-*-*-*-*-*-*-*-*-*/

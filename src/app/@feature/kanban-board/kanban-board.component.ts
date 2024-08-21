@@ -4,13 +4,24 @@ import { TaskService } from '@services-common/task/task.service';
 import { ITask } from '@models/interfaces/task/task';
 import { JsonPipe, NgClass, NgFor, NgIf } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { MatTooltipModule } from '@angular/material/tooltip';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-kanban-board',
   templateUrl: './kanban-board.component.html',
   styleUrls: ['./kanban-board.component.scss'],
   standalone: true,
-  imports: [DragDropModule, FormsModule, NgFor, JsonPipe, NgClass, NgIf],
+  imports: [
+    DragDropModule,
+    FormsModule,
+    NgFor,
+    JsonPipe,
+    NgClass,
+    NgIf,
+    MatTooltipModule,
+    MatButtonModule,
+  ],
 })
 export class KanbanBoardComponent {
   editingTaskId: string | null = null;

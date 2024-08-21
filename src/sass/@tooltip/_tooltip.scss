@@ -1,0 +1,32 @@
+@import '../2.variables';
+
+.tooltip {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 50%;
+  background-color: var(--secondary-color);
+  border-radius: 0.6rem;
+  border: 1px solid var(--secondary-color);
+  color: var(--quinary-color);
+  text-align: center;
+  padding: 0.8rem;
+  position: absolute;
+  z-index: 1;
+  bottom: 0%; /* Position the tooltip above the text */
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  transition: opacity 0.6s;
+  font-size: font-size(font-size-small-x);
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
+}
+

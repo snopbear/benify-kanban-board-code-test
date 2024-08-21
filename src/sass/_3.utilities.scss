@@ -1,8 +1,6 @@
 body {
-  font-family: "Oswald", cursive;
+  font-family: "dosis", sans-serif;
   line-height: 1.8;
-
-
 }
 /* List Items */
 li {
@@ -11,11 +9,10 @@ li {
   margin: 0;
 }
 
-
 /* Anchor Tags */
 a:link,
 a:visited {
-    text-decoration: none;
+  text-decoration: none;
   color: var(--quinary-color);
   font-size: font-size(font-size-regular);
 }
