@@ -1,57 +1,45 @@
-import { Injectable, Signal, signal, WritableSignal } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable, tap } from 'rxjs';
+import { Injectable, WritableSignal, signal } from '@angular/core';
 import { ITask } from '@models/interfaces/task/task';
-
-
+import { of } from 'rxjs';
+import { Observable } from 'rxjs/internal/Observable';
+import { INITIAL_TASKS } from 'src/app/@data/initial-tasks';
 
 @Injectable({
   providedIn: 'root',
 })
 export class TaskService {
-  private baseUrl = 'http://localhost:3000/tasks';
- tasksSignal: WritableSignal<ITask[]> = signal([]);
+  tasksSignal: WritableSignal<ITask[]> = signal(INITIAL_TASKS);
 
-  constructor(private http: HttpClient) {
-    this.fetchTasks();
-  }
+  constructor() {}
 
+  // Fetch tasks (initially load tasks from the array)
   fetchTasks(): void {
-    this.http
-      .get<ITask[]>(this.baseUrl)
-      .subscribe((data) => this.tasksSignal.set(data));
+    this.tasksSignal.set(INITIAL_TASKS);
   }
 
+  // Add a new task
   addTask(task: ITask): Observable<ITask> {
-    return this.http.post<ITask>(this.baseUrl, task).pipe(
-      tap((newTask) => {
-        debugger;
-        // Update the signal with the newly added product
-        this.tasksSignal.update((tasks) => [...tasks, newTask]);
-      })
-    );
+    task.id = Date.now().toString(); // Generating a simple unique ID
+    this.tasksSignal.update((tasks) => [...tasks, task]);
+    return of(task); // Simulating an HTTP observable
   }
 
+  // Update an existing task
   updateTask(task: ITask): Observable<ITask> {
-    return this.http.put<ITask>(`${this.baseUrl}/${task.id}`, task).pipe(
-      tap((updatedTask) => {
-        debugger;
-        this.tasksSignal.update((tasks) =>
-          tasks.map((p) => (p.id === updatedTask.id ? updatedTask : p))
-        );
-      })
+    this.tasksSignal.update((tasks) =>
+      tasks.map((t) => (t.id === task.id ? task : t))
     );
+    return of(task); // Simulating an HTTP observable
   }
 
+  // Delete a task by ID
   deleteTask(id: string): Observable<void> {
-    return this.http.delete<void>(`${this.baseUrl}/${id}`).pipe(
-      tap(() => {
-        // Update the signal to remove the deleted product
-        this.tasksSignal.update((tasks) =>
-          tasks.filter((task) => task.id !== id)
-        );
-      })
-    );
+    this.tasksSignal.update((tasks) => tasks.filter((task) => task.id !== id));
+    return of(void 0); // Simulating an HTTP observable
   }
 
+  // Get tasks by status
+  getTasksByStatus(status: 'To Do' | 'In Progress' | 'Done'): ITask[] {
+    return this.tasksSignal().filter((task) => task.status === status);
+  }
 }

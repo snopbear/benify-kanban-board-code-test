@@ -17,6 +17,7 @@ export class KanbanBoardComponent {
   savingTaskId: string | null = null;
   newTaskTitle: string = '';
   newTaskStatus: string = 'To Do';
+
   constructor(public taskService: TaskService) {}
 
   startEditing(task: ITask) {
@@ -51,20 +52,17 @@ export class KanbanBoardComponent {
   }
 
   addTask(title: string, status: any): void {
-    debugger
     if (title.trim()) {
-      const newTask: ITask = { id:'', title, status };
-      this.taskService.addTask(newTask).subscribe();
-      this.newTaskTitle = ''; // Clear the input after adding
-      this.newTaskStatus = 'To Do'; // Reset the select box
-      
+      const newTask: ITask = { id: '', title, status };
+      this.taskService.addTask(newTask).subscribe(() => {
+        this.newTaskTitle = ''; // Clear the input after adding
+        this.newTaskStatus = 'To Do'; // Reset the select box
+      });
     }
   }
 
-  getTasksByStatus(status:any): ITask[] {
-    return this.taskService
-      .tasksSignal()
-      .filter((task) => task.status === status);
+  getTasksByStatus(status: any): ITask[] {
+    return this.taskService.getTasksByStatus(status);
   }
 
   deleteTask(task: ITask): void {
