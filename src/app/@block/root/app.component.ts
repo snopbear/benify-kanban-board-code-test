@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import appComponentsImports from './app.component.imports';
 
 @Component({
-  selector: 'app-root',
+  selector: 'benify-root',
   standalone: true,
   imports: [appComponentsImports],
   templateUrl: './app.component.html',

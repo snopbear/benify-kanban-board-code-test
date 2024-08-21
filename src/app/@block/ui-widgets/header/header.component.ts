@@ -1,12 +1,12 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
-import appHeaderImports from './header.component.imports';
+import headerComponentImports from './header.component.imports';
 
 @Component({
-  selector: 'app-header',
+  selector: 'benify-header',
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
   standalone: true,
-  imports: [appHeaderImports],
+  imports: [headerComponentImports],
 })
 export class HeaderComponent {
   @ViewChild('hamburgerContainer') hamburgerContainer!: ElementRef;
@@ -14,10 +14,7 @@ export class HeaderComponent {
 
   links: { name: string; url: string }[] = [
     { name: 'Overview', url: '/overview' },
-    { name: 'Dashboard', url: '/dashboard' },
-    { name: 'About Us', url: '/about' },
-    { name: 'Contact', url: '/contact' },
-    { name: 'Services', url: '/services' },
+    { name: 'Dashboard / Signals', url: '/dashboard-signals' },
   ];
 
   menuOpen: boolean = false;

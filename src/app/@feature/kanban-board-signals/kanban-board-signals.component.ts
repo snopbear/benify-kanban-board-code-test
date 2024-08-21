@@ -1,29 +1,17 @@
 import { Component } from '@angular/core';
-import { CdkDragDrop, DragDropModule } from '@angular/cdk/drag-drop';
+import { CdkDragDrop } from '@angular/cdk/drag-drop';
 import { TaskService } from '@services-common/task/task.service';
 import { ITask } from '@models/interfaces/task/task';
-import { JsonPipe, NgClass, NgFor, NgIf } from '@angular/common';
-import { FormsModule } from '@angular/forms';
-import { MatTooltipModule } from '@angular/material/tooltip';
-import { MatButtonModule } from '@angular/material/button';
+import kanbanDashboardComponentsImports from './kanban-board-signals.component.imports';
 
 @Component({
-  selector: 'app-kanban-board',
-  templateUrl: './kanban-board.component.html',
-  styleUrls: ['./kanban-board.component.scss'],
+  selector: 'benify-kanban-board-signals',
+  templateUrl: './kanban-board-signals.component.html',
+  styleUrls: ['./kanban-board-signals.component.scss'],
   standalone: true,
-  imports: [
-    DragDropModule,
-    FormsModule,
-    NgFor,
-    JsonPipe,
-    NgClass,
-    NgIf,
-    MatTooltipModule,
-    MatButtonModule,
-  ],
+  imports: [kanbanDashboardComponentsImports],
 })
-export class KanbanBoardComponent {
+export class KanbanBoardSignalsComponent {
   editingTaskId: string | null = null;
   savingTaskId: string | null = null;
   newTaskTitle: string = '';

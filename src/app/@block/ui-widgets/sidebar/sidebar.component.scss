@@ -1,5 +1,6 @@
-
+@import '../../../../sass/2.variables';
 /*-*-*-*-*-*-*-*--*-*-*- Start Aside Section --*-*-*-*-*-*-*-*-*-*-*/
+
 .side-nav {
   position: sticky;
   top: 0;
@@ -31,7 +32,7 @@
         i {
           font-size: font-size(font-size-small-to-regular);
           color: var(--quinary-color);
-          padding-bottom: calc(2rem + 0.6667vw);
+          padding-bottom: calc(1rem + 0.6667vw);
           transition: var(--transition);
           &:hover,
           :active {

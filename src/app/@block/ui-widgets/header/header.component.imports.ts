@@ -5,8 +5,8 @@ const routerModules = [RouterLink];
 const commonModules = [NgFor, NgClass];
 
 
-const appHeaderImports = [
+const headerComponentImports = [
   ...routerModules,
   ...commonModules
 ];
-export default appHeaderImports;
+export default headerComponentImports;

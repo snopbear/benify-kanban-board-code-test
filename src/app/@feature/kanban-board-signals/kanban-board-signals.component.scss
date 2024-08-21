@@ -1,7 +1,6 @@
 @import "../../../sass/2.variables";
 @import "../../../sass/4.mixin"; // or wherever your mixins/variables are defined
 @import "../../../sass/@animated-title/animated-title";
-@import "../../../sass/@tooltip/tooltip";
 
 .board-container {
   &__add-task {
@@ -26,9 +25,8 @@
       font-size: font-size(font-size-small-x);
       &::placeholder {
         color: var(--quaternary-color);
-         font-family: font-family(exo2);
+        font-family: font-family(exo2);
       }
-
     }
     &--select {
       flex: 1;
@@ -72,7 +70,7 @@
       width: 100%;
     }
     &--column {
-      flex-basis: 45rem;
+      // flex-basis: 50rem;
       background-color: var(--secondary-color-m);
       border-radius: 1rem;
       margin: 1.6rem;
@@ -180,8 +178,8 @@
       flex: 1;
       padding: 0.8rem;
       margin-right: 0.8rem;
-      background-color: var(--quinary-color);
-      border: 1px solid var(--tertiary-color);
+      background-color: var(--quaternary-color);
+      border: 1px solid var(--secondary-color-m);
       border-radius: 0.4rem;
       color: var(--primary-color);
       font-family: font-family(exo2);
@@ -190,7 +188,71 @@
 
       &::placeholder {
         color: var(--quaternary-color);
-         font-family: font-family(exo2);
+        font-family: font-family(exo2);
+      }
+    }
+
+    &--cancel {
+      padding: 0.8rem 1.6rem;
+      background-color: var(--primary-color);
+      border: none;
+      border-radius: 0.4rem;
+      color: var(--quinary-color);
+      font-family: font-family(exo2);
+      font-size: font-size(font-size-small-x);
+      cursor: pointer;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+
+      &:hover {
+        background-color: var(--tertiary-color);
+        box-shadow: 0 2px 6px var(--card-shadow);
+        border:1px solid var(--primary-color)
+      }
+    }
+
+    @media (max-width: 1920px) {
+      &--column {
+        flex-basis: 50rem;
+      }
+    }
+    @media (max-width: 1705px) {
+      &--column {
+        flex-basis: 45rem;
+      }
+    }
+
+    @media (max-width: 1550px) {
+      &--column {
+        flex-basis: 40rem;
+      }
+    }
+
+    @media (max-width: 1397px) {
+      &--column {
+        flex-basis: 35rem;
+      }
+    }
+
+    @media (max-width: 1242px) {
+      &--column {
+        flex-basis: 30rem;
+      }
+    }
+
+    @media (max-width: 1087px) {
+      &--column {
+        flex-basis: 25rem;
+      }
+    }
+
+    @media (max-width: 933px) {
+      &--column {
+        flex-basis: 20rem;
+      }
+    }
+    @media (max-width: 778px) {
+      &--column {
+        flex-basis: 60rem;
       }
     }
   }

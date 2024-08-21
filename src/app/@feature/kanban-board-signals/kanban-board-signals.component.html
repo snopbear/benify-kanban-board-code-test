@@ -29,12 +29,13 @@
           <ng-container *ngIf="editingTaskId === task.id; else viewModeTodo">
             <input class="board-container__kanban--input" type="text" [value]="task.title"
               (keydown.enter)="saveTask(task, $event.target)" (blur)="cancelEditing()" autofocus />
+              <button class="board-container__kanban--cancel" (click)="cancelEditing()">Cancel</button>
 
           </ng-container>
           <ng-template #viewModeTodo>
-            <p (dblclick)="startEditing(task)" class=" tooltip animated-title">
+            <p (click)="startEditing(task)" class="animated-title">
               {{ task.title }}
-              <span class="tooltiptext">Double click to edit!</span>
+              
             </p>
             <button class="board-container__kanban--item__button-delete" (click)="deleteTask(task)">
               x
@@ -56,12 +57,12 @@
           <ng-container *ngIf="editingTaskId === task.id; else viewModeInProgress">
             <input class="board-container__kanban--input" type="text" [value]="task.title"
               (keydown.enter)="saveTask(task, $event.target)" (blur)="cancelEditing()" autofocus />
+              <button class="board-container__kanban--cancel" (click)="cancelEditing()">Cancel</button>
 
           </ng-container>
           <ng-template #viewModeInProgress>
-            <p (dblclick)="startEditing(task)" class=" tooltip animated-title">
+            <p (click)="startEditing(task)" class="animated-title">
               {{ task.title }}
-              <span class="tooltiptext">Double click to edit!</span>
             </p>
 
             <button class="board-container__kanban--item__button-delete" (click)="deleteTask(task)">
@@ -84,14 +85,12 @@
           <ng-container *ngIf="editingTaskId === task.id; else viewModeDone">
             <input class="board-container__kanban--input" type="text" [value]="task.title"
               (keydown.enter)="saveTask(task, $event.target)" (blur)="cancelEditing()" autofocus />
+              <button class="board-container__kanban--cancel" (click)="cancelEditing()">Cancel</button>
 
           </ng-container>
           <ng-template #viewModeDone>
-
-
-            <p (dblclick)="startEditing(task)" class=" tooltip animated-title">
+            <p (click)="startEditing(task)" class="animated-title">
               {{ task.title }}
-              <span class="tooltiptext">Double click to edit!</span>
             </p>
             <button class="board-container__kanban--item__button-delete" (click)="deleteTask(task)">
               x

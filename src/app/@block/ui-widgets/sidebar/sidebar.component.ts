@@ -1,11 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import sidebarComponentsImports from './sidebar.component.imports';
 
 @Component({
-  selector: 'app-sidebar',
+  selector: 'benify-sidebar',
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.scss'],
-  standalone: true
+  standalone: true,
+  imports: [sidebarComponentsImports],
 })
-export class SidebarComponent {
-
-}
+export class SidebarComponent {}

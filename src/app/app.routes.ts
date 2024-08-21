@@ -11,11 +11,11 @@ export const routes: Routes = [
       ),
   },
   {
-    path: 'dashboard',
+    path: 'dashboard-signals',
     loadComponent: () =>
-      import('./@feature/kanban-board/kanban-board.component').then(
-        (x) => x.KanbanBoardComponent
-      ),
+      import(
+        './@feature/kanban-board-signals/kanban-board-signals.component'
+      ).then((x) => x.KanbanBoardSignalsComponent),
   },
 
   //   {

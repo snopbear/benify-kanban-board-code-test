@@ -2,22 +2,21 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 import { By } from '@angular/platform-browser';
 import { DebugElement } from '@angular/core';
+import { KanbanBoardSignalsComponent } from './kanban-board-signals.component';
 
-import { KanbanBoardComponent } from './kanban-board.component';
 
 describe('KanbanBoardComponent', () => {
-  let component: KanbanBoardComponent;
-  let fixture: ComponentFixture<KanbanBoardComponent>;
+  let component: KanbanBoardSignalsComponent;
+  let fixture: ComponentFixture<KanbanBoardSignalsComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ KanbanBoardComponent ]
-    })
-    .compileComponents();
+      declarations: [KanbanBoardSignalsComponent],
+    }).compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(KanbanBoardComponent);
+    fixture = TestBed.createComponent(KanbanBoardSignalsComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
