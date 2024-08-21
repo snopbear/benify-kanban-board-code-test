@@ -1,167 +1,53 @@
 @import "../../../sass/2.variables";
 
-.add-task {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin: 2rem 3rem 0;
-  padding: 1.2rem;
-  background-color: var(--secondary-color);
-  border: 1px solid var(--primary-color);
-  border-radius: 0.4rem;
-  box-shadow: 0 1px 3px var(--card-shadow);
-
-  input[type="text"] {
-    flex: 2;
-    padding: 0.8rem;
-    margin-right: 0.8rem;
-    background-color: var(--secondary-color-m);
-    border: 1px solid var(--tertiary-color);
-    border-radius: 0.4rem;
-    color: var(--quinary-color);
-    font-family: "Lato", sans-serif;
-    font-size: 1.4rem;
-
-    &::placeholder {
-      color: var(--quaternary-color);
-    }
-  }
-
-  select {
-    flex: 1;
-    padding: 0.8rem;
-    margin-right: 0.8rem;
-    background-color: var(--secondary-color-m);
-    border: 1px solid var(--tertiary-color);
-    border-radius: 0.4rem;
-    color: var(--quinary-color);
-    font-family: "Lato", sans-serif;
-    font-size: 1.4rem;
-
-    option {
-      background-color: var(--secondary-color-m);
-      color: var(--quinary-color);
-    }
-  }
-
-  button {
-    padding: 0.8rem 1.6rem;
-    background-color: var(--primary-color);
-    border: none;
-    border-radius: 0.4rem;
-    color: var(--quinary-color);
-    font-family: "Lato", sans-serif;
-    font-size: 1.4rem;
-    cursor: pointer;
-    transition: background-color 0.3s ease, box-shadow 0.3s ease;
-
-    &:hover {
-      background-color: var(--tertiary-color);
-      box-shadow: 0 2px 6px var(--card-shadow);
-    }
-  }
-}
-
-.kanban {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  padding: 1.6rem;
-  p {
-    width: 100%;
-  }
-  &__column {
-    flex: 1 1 30%;
-    background-color: var(--secondary-color-m);
-    border: 1px solid var(--primary-color);
-    border-radius: 0.8rem;
-    margin: 1.6rem;
-    padding: 1.6rem;
-    box-shadow: 0 0.1rem 0.1rem var(--tertiary-color-m);
-    transition: box-shadow 0.3s ease;
-
-    &:hover {
-      box-shadow: 0 0.4rem 1rem var(--card-shadow);
-    }
-
-    &--todo {
-      border-left: 4px solid var(--status-todo-text);
-    }
-
-    &--in-progress {
-      border-left: 4px solid var(--status-in-progress-text);
-    }
-
-    &--done {
-      border-left: 4px solid var(--status-done-text);
-    }
-  }
-
-  &__title {
-    color: var(--quinary-color);
-    font-size: 3rem;
-    text-align: center;
-    margin-bottom: 1.6rem;
-    font-family: "Lato", sans-serif;
-  }
-
-  &__list {
-    min-height: 30rem;
+.board-container {
+  padding: 5rem 15rem;
+  &__add-task {
     display: flex;
-    flex-direction: column;
-    padding: 0;
-  }
-
-  &__item {
-    border: 1px solid var(--primary-color);
-    border-radius: 0.4rem;
-    margin: 0.8rem 0;
-    padding: 1.2rem;
-    cursor: move;
-    transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s ease;
-    box-shadow: 0 1px 3px var(--card-shadow);
-    font-family: "Lato", sans-serif;
-    font-size: 1.4rem;
-    background-color: var(--secondary-color);
-    display: flex;
-    justify-content: space-between;
     align-items: center;
+    justify-content: space-between;
+    margin: 2rem 3rem 0;
+    padding: 1.2rem;
+    background-color: var(--secondary-color);
+    border: 1px solid var(--primary-color);
+    border-radius: 0.4rem;
+    box-shadow: 0 1px 3px var(--card-shadow);
 
-    &:hover {
-      box-shadow: 0 2px 6px var(--card-shadow);
-      color: var(--primary-color);
-    }
-
-    &--todo {
-      color: var(--status-todo-text);
-    }
-
-    &--in-progress {
-      color: var(--status-in-progress-text);
-    }
-
-    &--done {
-      color: var(--status-done-text);
-    }
-
-    &--todo:hover {
-      background-color: var(--tertiary-color);
-    }
-
-    &--in-progress:hover {
-      background-color: var(--quaternary-color);
-    }
-
-    &--done:hover {
-      background-color: var(--tertiary-color-m);
-    }
-
-    &--editing {
+    input[type="text"] {
+      flex: 2;
+      padding: 0.8rem;
+      margin-right: 0.8rem;
       background-color: var(--secondary-color-m);
+      border: 1px solid var(--tertiary-color);
+      border-radius: 0.4rem;
+      color: var(--quinary-color);
+      font-family: "Lato", sans-serif;
+      font-size: 1.4rem;
+
+      &::placeholder {
+        color: var(--quaternary-color);
+      }
     }
 
-    .kanban__item--button-delete {
-      padding: 0.2rem 0.5rem;
+    select {
+      flex: 1;
+      padding: 0.8rem;
+      margin-right: 0.8rem;
+      background-color: var(--secondary-color-m);
+      border: 1px solid var(--tertiary-color);
+      border-radius: 0.4rem;
+      color: var(--quinary-color);
+      font-family: "Lato", sans-serif;
+      font-size: 1.4rem;
+
+      option {
+        background-color: var(--secondary-color-m);
+        color: var(--quinary-color);
+      }
+    }
+
+    button {
+      padding: 0.8rem 1.6rem;
       background-color: var(--primary-color);
       border: none;
       border-radius: 0.4rem;
@@ -170,61 +56,180 @@
       font-size: 1.4rem;
       cursor: pointer;
       transition: background-color 0.3s ease, box-shadow 0.3s ease;
-      cursor: pointer;
-      &:hover {
-        background-color: var(--tertiary-color);
-        box-shadow: 0 2px 6px var(--card-shadow);
-      }
-    }
-
-    .save-button,
-    .cancel-button {
-      padding: 0.2rem 0.5rem;
-      border: none;
-      border-radius: 0.4rem;
-      color: var(--quinary-color);
-      font-family: "Lato", sans-serif;
-      font-size: 1.4rem;
-      cursor: pointer;
-      transition: background-color 0.3s ease, box-shadow 0.3s ease;
-
-      &:hover {
-        box-shadow: 0 2px 6px var(--card-shadow);
-      }
-    }
-
-    .save-button {
-      background-color: var(--primary-color); /* Save button background color */
 
       &:hover {
         background-color: var(--tertiary-color);
-      }
-    }
-
-    .cancel-button {
-      background-color: var(
-        --tertiary-color-m
-      ); /* Cancel button background color */
-
-      &:hover {
-        background-color: var(--quaternary-color);
+        box-shadow: 0 2px 6px var(--card-shadow);
       }
     }
   }
 
-  .kanban__item input[type="text"] {
-    flex: 1;
-    padding: 0.8rem;
-    margin-right: 0.8rem;
-    background-color: var(--quaternary-color-m);
-    border: 1px solid var(--tertiary-color);
-    border-radius: 0.4rem;
-    color: var(--quinary-color);
-    font-family: "Lato", sans-serif;
-    font-size: 1.4rem;
+  .kanban {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 1.6rem;
+    p {
+      width: 100%;
+    }
+    &__column {
+      flex: 1 1 30%;
+      background-color: var(--secondary-color-m);
+      border: 1px solid var(--primary-color);
+      border-radius: 0.8rem;
+      margin: 1.6rem;
+      padding: 1.6rem;
+      box-shadow: 0 0.1rem 0.1rem var(--tertiary-color-m);
+      transition: box-shadow 0.3s ease;
 
-    &::placeholder {
-      color: var(--quaternary-color);
+      &:hover {
+        box-shadow: 0 0.4rem 1rem var(--card-shadow);
+      }
+
+      &--todo {
+        border-left: 4px solid var(--status-todo-text);
+      }
+
+      &--in-progress {
+        border-left: 4px solid var(--status-in-progress-text);
+      }
+
+      &--done {
+        border-left: 4px solid var(--status-done-text);
+      }
+    }
+
+    &__title {
+      color: var(--quinary-color);
+      font-size: 3rem;
+      text-align: center;
+      margin-bottom: 1.6rem;
+      font-family: "Lato", sans-serif;
+    }
+
+    &__list {
+      min-height: 30rem;
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+    }
+
+    &__item {
+      border: 1px solid var(--primary-color);
+      border-radius: 0.4rem;
+      margin: 0.8rem 0;
+      padding: 1.2rem;
+      cursor: move;
+      transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s ease;
+      box-shadow: 0 1px 3px var(--card-shadow);
+      font-family: "Lato", sans-serif;
+      font-size: 1.4rem;
+      background-color: var(--secondary-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      &:hover {
+        box-shadow: 0 2px 6px var(--card-shadow);
+        color: var(--primary-color);
+      }
+
+      &--todo {
+        color: var(--status-todo-text);
+      }
+
+      &--in-progress {
+        color: var(--status-in-progress-text);
+      }
+
+      &--done {
+        color: var(--status-done-text);
+      }
+
+      &--todo:hover {
+        background-color: var(--tertiary-color);
+      }
+
+      &--in-progress:hover {
+        background-color: var(--quaternary-color);
+      }
+
+      &--done:hover {
+        background-color: var(--tertiary-color-m);
+      }
+
+      &--editing {
+        background-color: var(--secondary-color-m);
+      }
+
+      .kanban__item--button-delete {
+        padding: 0.2rem 0.5rem;
+        background-color: var(--primary-color);
+        border: none;
+        border-radius: 0.4rem;
+        color: var(--quinary-color);
+        font-family: "Lato", sans-serif;
+        font-size: 1.4rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+        cursor: pointer;
+        &:hover {
+          background-color: var(--tertiary-color);
+          box-shadow: 0 2px 6px var(--card-shadow);
+        }
+      }
+
+      .save-button,
+      .cancel-button {
+        padding: 0.2rem 0.5rem;
+        border: none;
+        border-radius: 0.4rem;
+        color: var(--quinary-color);
+        font-family: "Lato", sans-serif;
+        font-size: 1.4rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease, box-shadow 0.3s ease;
+
+        &:hover {
+          box-shadow: 0 2px 6px var(--card-shadow);
+        }
+      }
+
+      .save-button {
+        background-color: var(
+          --primary-color
+        ); /* Save button background color */
+
+        &:hover {
+          background-color: var(--tertiary-color);
+        }
+      }
+
+      .cancel-button {
+        background-color: var(
+          --tertiary-color-m
+        ); /* Cancel button background color */
+
+        &:hover {
+          background-color: var(--quaternary-color);
+        }
+      }
+    }
+
+    .kanban__item input[type="text"] {
+      flex: 1;
+      padding: 0.8rem;
+      margin-right: 0.8rem;
+      background-color: var(--quaternary-color-m);
+      border: 1px solid var(--tertiary-color);
+      border-radius: 0.4rem;
+      color: var(--quinary-color);
+      font-family: "Lato", sans-serif;
+      font-size: 1.4rem;
+
+      &::placeholder {
+        color: var(--quaternary-color);
+      }
     }
   }
 }

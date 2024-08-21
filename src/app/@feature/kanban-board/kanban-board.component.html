@@ -1,5 +1,6 @@
+<div class="board-container">
 
-<div class="add-task">
+<div class="board-container__add-task">
   <input type="text" placeholder="New task title" [(ngModel)]="newTaskTitle" />
   <select [(ngModel)]="newTaskStatus">
     <option value="To Do">To Do</option>
@@ -23,7 +24,7 @@
         <ng-container *ngIf="editingTaskId === task.id; else viewModeTodo">
           <input type="text" [value]="task.title" (keydown.enter)="saveTask(task, $event.target)"
             (blur)="cancelEditing()" autofocus />
-   
+
         </ng-container>
         <ng-template #viewModeTodo>
           <p (dblclick)="startEditing(task)">{{ task.title }}</p>
@@ -81,4 +82,5 @@
       </div>
     </div>
   </div>
+</div>
 </div>
