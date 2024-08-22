@@ -68,7 +68,7 @@
         transition: 0.5s;
         z-index: 1000;
         &--drugRadar {
-              font-size: font-size(font-size-medium);
+          font-size: font-size(font-size-medium);
         }
       }
     }
@@ -79,6 +79,7 @@
       }
     }
     &--button {
+      width: 30rem;
       margin: 4rem;
       height: auto;
       background: var(--primary-color);
@@ -86,8 +87,8 @@
       border: none;
       letter-spacing: 0.3rem;
       text-decoration: none;
-      font-size: 2rem;
-    font-family: font-family(dosis);
+      font-size: font-size(font-size-small);
+      font-family: font-family(dosis);
       position: relative;
       text-transform: uppercase;
       color: var(--quinary-color);
@@ -100,7 +101,7 @@
         color: rgb(20, 36, 50);
         width: 0%;
         inset: 0;
-        border-right: 0.6rem solid var(--stroke);
+        border-right: 0.1rem solid var(--stroke);
         overflow: hidden;
         transition: 0.5s;
         -webkit-text-stroke: 0.1rem var(--stroke);

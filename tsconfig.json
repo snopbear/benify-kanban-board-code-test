@@ -4,8 +4,8 @@
   "compilerOptions": {
     "baseUrl": "./",
     "paths": {
-      "@ui-widgets/*": ["src/app/@block/ui-widgets/*"],
-      "@services-common/*": ["src/app/@core/services/*"],
+      "@widgets/*": ["src/app/@block/widgets/*"],
+      "@services/*": ["src/app/@core/services/*"],
       "@models/*": ["src/app/@core/models/*"],
       "@constants/*": ["src/app/@constants/*"]
     },

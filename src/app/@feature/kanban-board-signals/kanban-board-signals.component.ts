@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CdkDragDrop } from '@angular/cdk/drag-drop';
-import { TaskService } from '@services-common/task/task.service';
+import { TaskService } from '@services/task/task.service';
 import { ITask } from '@models/interfaces/task/task';
 import kanbanDashboardComponentsImports from './kanban-board-signals.component.imports';
 
@@ -12,6 +12,7 @@ import kanbanDashboardComponentsImports from './kanban-board-signals.component.i
   imports: [kanbanDashboardComponentsImports],
 })
 export class KanbanBoardSignalsComponent {
+
   editingTaskId: string | null = null;
   savingTaskId: string | null = null;
   newTaskTitle: string = '';
@@ -54,8 +55,8 @@ export class KanbanBoardSignalsComponent {
     if (title.trim()) {
       const newTask: ITask = { id: '', title, status };
       this.taskService.addTask(newTask).subscribe(() => {
-        this.newTaskTitle = ''; // Clear the input after adding
-        this.newTaskStatus = 'To Do'; // Reset the select box
+        this.newTaskTitle = '';
+        this.newTaskStatus = 'To Do'; 
       });
     }
   }

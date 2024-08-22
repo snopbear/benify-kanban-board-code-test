@@ -37,7 +37,7 @@ export class TaskService {
   }
 
   // Get tasks by status
-  getTasksByStatus(status: 'To Do' | 'In Progress' | 'Done'): ITask[] {
+  getTasksByStatus(status: any): ITask[] {
     return this.tasks.filter((task) => task.status === status);
   }
 }

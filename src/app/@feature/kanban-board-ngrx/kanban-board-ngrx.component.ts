@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
+import { CdkDragDrop } from '@angular/cdk/drag-drop';
 import { ITask } from '@models/interfaces/task/task';
 import * as TaskActions from './../../@core/state/task-store/actions/task.actions';
 import * as fromTask from './../../@core/state/task-store/selector/task.selectors';
-import { CdkDragDrop } from '@angular/cdk/drag-drop';
 import kanbanDashboardNGRXComponentsImports from './kanban-board-ngrx.component.imports';
 @Component({
   selector: 'app-kanban-board-ngrx',
@@ -14,6 +14,8 @@ import kanbanDashboardNGRXComponentsImports from './kanban-board-ngrx.component.
   imports: [kanbanDashboardNGRXComponentsImports],
 })
 export class KanbanBoardNgrxComponent {
+
+  
   tasks$: Observable<ITask[]>;
   newTaskTitle: string = '';
   newTaskStatus: string = 'To Do';

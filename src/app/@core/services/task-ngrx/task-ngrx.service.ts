@@ -19,7 +19,7 @@ export class TaskNgrxService {
 
   // Add a new task
   addTask(task: ITask): Observable<ITask> {
-    task.id = (this.tasks.length + 1).toString(); // Generate a simple ID
+    task.id = Date.now().toString(); // Generate a simple unique ID
     this.tasks = [...this.tasks, task];
     return of(task).pipe(delay(500)); // Simulate network delay
   }

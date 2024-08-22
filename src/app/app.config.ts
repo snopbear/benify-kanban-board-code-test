@@ -1,12 +1,11 @@
 import { ApplicationConfig, provideZoneChangeDetection } from '@angular/core';
-import { provideRouter } from '@angular/router';
-
-import { routes } from './app.routes';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideHttpClient, withFetch } from '@angular/common/http';
-import { provideEffects } from '@ngrx/effects';
-import { TaskEffects } from './@core/state/task-store/effects/task.effects';
 import { provideState, provideStore } from '@ngrx/store';
+import { provideEffects } from '@ngrx/effects';
+import { provideRouter } from '@angular/router';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
+import { routes } from './app.routes';
+import { TaskEffects } from './@core/state/task-store/effects/task.effects';
 import { taskReducer } from './@core/state/task-store/reducer/task.reducer';
 
 export const appConfig: ApplicationConfig = {

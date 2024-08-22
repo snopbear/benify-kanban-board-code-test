@@ -10,5 +10,4 @@ export const INITIAL_TASKS: ITask[] = [
   { id: '7', title: 'Sample Task 7', status: 'Done' },
   { id: '8', title: 'Sample Task 8', status: 'Done' },
   { id: '9', title: 'Sample Task 9', status: 'Done' },
-  // Add more tasks as needed
 ];

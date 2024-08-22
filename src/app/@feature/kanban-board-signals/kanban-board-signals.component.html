@@ -15,9 +15,11 @@
       Add Task
     </button>
   </div>
-<h2 class="board-container__h-tag-implementation">Signals Implementation</h2>
+  <h2 class="board-container__h-tag-implementation">Signals Implementation</h2>
   <div class="board-container__kanban">
+
     <!-- To Do Column -->
+
     <div class="board-container__kanban--column board-container__kanban--column__todo">
       <h2 class="board-container__kanban--title">To Do</h2>
       <div cdkDropList #todoList="cdkDropList" [cdkDropListData]="getTasksByStatus('To Do')"
@@ -28,14 +30,14 @@
           [ngClass]="{ 'board-container__kanban--item__editing': editingTaskId === task.id }">
           <ng-container *ngIf="editingTaskId === task.id; else viewModeTodo">
             <input class="board-container__kanban--input" type="text" [value]="task.title"
-              (keydown.enter)="saveTask(task, $event.target)"  autofocus />
-              <button class="board-container__kanban--cancel" (click)="cancelEditing()">Cancel</button>
+              (keydown.enter)="saveTask(task, $event.target)" autofocus />
+            <button class="board-container__kanban--cancel" (click)="cancelEditing()">Cancel</button>
 
           </ng-container>
           <ng-template #viewModeTodo>
             <p (click)="startEditing(task)" class="animated-title">
               {{ task.title }}
-              
+
             </p>
             <button class="board-container__kanban--item__button-delete" (click)="deleteTask(task)">
               x
@@ -46,6 +48,7 @@
     </div>
 
     <!-- In Progress Column -->
+
     <div class="board-container__kanban--column board-container__kanban--column__in-progress">
       <h2 class="board-container__kanban--title">In Progress</h2>
       <div cdkDropList #inProgressList="cdkDropList" [cdkDropListData]="getTasksByStatus('In Progress')"
@@ -56,8 +59,8 @@
           [ngClass]="{ 'board-container__kanban--item__editing': editingTaskId === task.id }">
           <ng-container *ngIf="editingTaskId === task.id; else viewModeInProgress">
             <input class="board-container__kanban--input" type="text" [value]="task.title"
-              (keydown.enter)="saveTask(task, $event.target)"  autofocus />
-              <button class="board-container__kanban--cancel" (click)="cancelEditing()">Cancel</button>
+              (keydown.enter)="saveTask(task, $event.target)" autofocus />
+            <button class="board-container__kanban--cancel" (click)="cancelEditing()">Cancel</button>
 
           </ng-container>
           <ng-template #viewModeInProgress>
@@ -74,6 +77,7 @@
     </div>
 
     <!-- Done Column -->
+
     <div class="board-container__kanban--column board-container__kanban--column__done">
       <h2 class="board-container__kanban--title">Done</h2>
       <div cdkDropList #doneList="cdkDropList" [cdkDropListData]="getTasksByStatus('Done')"
@@ -85,7 +89,7 @@
           <ng-container *ngIf="editingTaskId === task.id; else viewModeDone">
             <input class="board-container__kanban--input" type="text" [value]="task.title"
               (keydown.enter)="saveTask(task, $event.target)" autofocus />
-              <button class="board-container__kanban--cancel" (click)="cancelEditing()">Cancel</button>
+            <button class="board-container__kanban--cancel" (click)="cancelEditing()">Cancel</button>
 
           </ng-container>
           <ng-template #viewModeDone>

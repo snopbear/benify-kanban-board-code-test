@@ -1,10 +1,5 @@
 
 --------------------------------------------------------------------------------
-Package: @angular/platform-browser
-License: "MIT"
-
-
---------------------------------------------------------------------------------
 Package: @ngrx/effects
 License: "MIT"
 
@@ -35,12 +30,12 @@ https://github.com/cartant/rxjs-etc by Nicholas Jamieson, MIT licensed. See the
 file header for details.
 
 --------------------------------------------------------------------------------
-Package: @angular/common
+Package: @angular/platform-browser
 License: "MIT"
 
 
 --------------------------------------------------------------------------------
-Package: @angular/router
+Package: @angular/animations
 License: "MIT"
 
 
@@ -111,7 +106,12 @@ License: "MIT"
 
 
 --------------------------------------------------------------------------------
-Package: @angular/animations
+Package: @angular/common
+License: "MIT"
+
+
+--------------------------------------------------------------------------------
+Package: @angular/router
 License: "MIT"
 
 

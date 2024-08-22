@@ -24,12 +24,11 @@ export const routes: Routes = [
         './@feature/kanban-board-ngrx/kanban-board-ngrx.component'
       ).then((x) => x.KanbanBoardNgrxComponent),
   },
-
-  //   {
-  //     path: '**',
-  //     loadComponent: () =>
-  //       import('./@feature/not-found/not-found.component').then(
-  //         (x) => x.NotFoundComponent
-  //       ),
-  //   },
+    {
+      path: '**',
+      loadComponent: () =>
+        import('./@feature/not-found/not-found.component').then(
+          (x) => x.NotFoundComponent
+        ),
+    },
 ];
