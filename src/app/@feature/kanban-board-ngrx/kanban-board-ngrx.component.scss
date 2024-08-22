@@ -1,0 +1,258 @@
+@import "../../../sass/2.variables";
+@import "../../../sass/4.mixin"; // or wherever your mixins/variables are defined
+@import "../../../sass/@animated-title/animated-title";
+
+.board-container {
+  &__add-task {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 2rem 3rem 0;
+    padding: 1.2rem;
+    background-color: var(--secondary-color);
+    border: 1px solid var(--primary-color);
+    border-radius: 0.4rem;
+    box-shadow: 0 0.1rem 0.3rem var(--card-shadow);
+    &--input {
+      flex: 2;
+      padding: 0.8rem;
+      margin-right: 0.8rem;
+      background-color: var(--secondary-color-m);
+      border: 0.1rem solid var(--tertiary-color);
+      border-radius: 0.4rem;
+      color: var(--quinary-color);
+      font-family: font-family(exo2);
+      font-size: font-size(font-size-small-x);
+      outline: none;
+      &::placeholder {
+        color: var(--quaternary-color);
+        font-family: font-family(exo2);
+      }
+    }
+    &--select {
+      flex: 1;
+      padding: 0.8rem;
+      margin-right: 0.8rem;
+      background-color: var(--secondary-color-m);
+      border: 0.1rem solid var(--tertiary-color);
+      border-radius: 0.4rem;
+      color: var(--quinary-color);
+      font-family: font-family(exo2);
+      font-size: font-size(font-size-small-x);
+      option {
+        background-color: var(--secondary-color-m);
+        color: var(--quinary-color);
+      }
+    }
+    &--button {
+      padding: 0.8rem 1.6rem;
+      background-color: var(--primary-color);
+      border: none;
+      border-radius: 0.4rem;
+      color: var(--quinary-color);
+      font-family: font-family(exo2);
+      font-size: font-size(font-size-small-x);
+      cursor: pointer;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+
+      &:hover {
+        background-color: var(--tertiary-color);
+        box-shadow: 0 2px 6px var(--card-shadow);
+      }
+    }
+  }
+
+  &__kanban {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding: 1.6rem;
+    p {
+      width: 100%;
+    }
+    &--column {
+      // flex-basis: 50rem;
+      background-color: var(--secondary-color-m);
+      border-radius: 1rem;
+      margin: 1.6rem;
+      padding: 1.6rem;
+      box-shadow: 0 0.1rem 0.1rem var(--primary-color);
+      transition: box-shadow 0.3s ease;
+
+      &:hover {
+        box-shadow: 0 0.4rem 1rem var(--tertiary-color-m);
+      }
+
+      &__todo {
+        border-left: 0.3rem solid var(--status-todo-text);
+      }
+
+      &__in-progress {
+        border-left: 0.3rem solid var(--status-in-progress-text);
+      }
+
+      &__done {
+        border-left: 0.3rem solid var(--status-done-text);
+      }
+    }
+
+    &--title {
+      color: var(--quinary-color);
+      font-size: font-size(font-size-small);
+      font-weight: font-weight(font-weight-regular);
+      text-align: center;
+      margin-bottom: 1.6rem;
+      font-family: font-family(exo2);
+    }
+
+    &--list {
+      min-height: 30rem;
+      display: flex;
+      flex-direction: column;
+      padding: 0;
+    }
+
+    &--item {
+      border: 0.1rem solid var(--primary-color);
+      border-radius: 0.4rem;
+      margin: 0.8rem 0;
+      padding: 1.2rem;
+      cursor: move;
+      transition: background-color 0.3s, border-color 0.3s, box-shadow 0.3s ease;
+      box-shadow: 0 0.1rem 0.3rem var(--card-shadow);
+      font-family: font-family(exo2);
+      font-size: font-size(font-size-small-x);
+      background-color: var(--secondary-color);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      &:hover {
+        box-shadow: 0 2px 6px var(--card-shadow);
+        color: var(--primary-color);
+      }
+
+      &__todo {
+        color: var(--status-todo-text);
+      }
+
+      &__in-progress {
+        color: var(--status-in-progress-text);
+      }
+
+      &--done {
+        color: var(--status-done-text);
+      }
+
+      &__todo:hover {
+        background-color: var(--tertiary-color);
+      }
+
+      &__in-progress:hover {
+        background-color: var(--quaternary-color);
+      }
+
+      &__done:hover {
+        background-color: var(--tertiary-color-m);
+      }
+
+      &__editing {
+        background-color: var(--secondary-color-m);
+      }
+
+      &__button-delete {
+        padding: 0.4rem 0.8rem;
+        background-color: var(--status-todo-text);
+        border: none;
+        border-radius: 0.4rem;
+        color: var(--quinary-color);
+        cursor: pointer;
+        &:hover {
+          background-color: var(--status-todo-text);
+        }
+      }
+    }
+
+    &--input {
+      flex: 1;
+      padding: 0.8rem;
+      margin-right: 0.8rem;
+      background-color: var(--quaternary-color);
+      border: 1px solid var(--secondary-color-m);
+      border-radius: 0.4rem;
+      color: var(--primary-color);
+      font-family: font-family(exo2);
+      font-size: font-size(font-size-small-x);
+      outline: none;
+
+      &::placeholder {
+        color: var(--quaternary-color);
+        font-family: font-family(exo2);
+      }
+    }
+
+    &--cancel {
+      padding: 0.8rem 1.6rem;
+      background-color: var(--primary-color);
+      border: none;
+      border-radius: 0.4rem;
+      color: var(--quinary-color);
+      font-family: font-family(exo2);
+      font-size: font-size(font-size-small-x);
+      cursor: pointer;
+      transition: background-color 0.3s ease, box-shadow 0.3s ease;
+
+      &:hover {
+        background-color: var(--tertiary-color);
+        box-shadow: 0 2px 6px var(--card-shadow);
+        border:1px solid var(--primary-color)
+      }
+    }
+
+    @media (max-width: 1920px) {
+      &--column {
+        flex-basis: 50rem;
+      }
+    }
+    @media (max-width: 1705px) {
+      &--column {
+        flex-basis: 45rem;
+      }
+    }
+
+    @media (max-width: 1550px) {
+      &--column {
+        flex-basis: 40rem;
+      }
+    }
+
+    @media (max-width: 1397px) {
+      &--column {
+        flex-basis: 35rem;
+      }
+    }
+
+    @media (max-width: 1242px) {
+      &--column {
+        flex-basis: 30rem;
+      }
+    }
+
+    @media (max-width: 1087px) {
+      &--column {
+        flex-basis: 25rem;
+      }
+    }
+
+    @media (max-width: 933px) {
+      &--column {
+        flex-basis: 20rem;
+      }
+    }
+    @media (max-width: 778px) {
+      &--column {
+        flex-basis: 60rem;
+      }
+    }
+  }
+}

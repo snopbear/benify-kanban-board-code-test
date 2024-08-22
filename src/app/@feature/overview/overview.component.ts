@@ -1,12 +1,12 @@
 import { Component } from '@angular/core';
-import { RouterLink } from '@angular/router';
+import overviewComponentsImports from './overview.component.imports';
 
 @Component({
   selector: 'app-home',
   templateUrl: './overview.component.html',
   styleUrls: ['./overview.component.scss'],
   standalone: true,
-  imports: [RouterLink],
+  imports: [overviewComponentsImports],
 })
 export class OverviewComponent {
   constructor() {}

@@ -17,6 +17,13 @@ export const routes: Routes = [
         './@feature/kanban-board-signals/kanban-board-signals.component'
       ).then((x) => x.KanbanBoardSignalsComponent),
   },
+  {
+    path: 'dashboard-ngrx',
+    loadComponent: () =>
+      import(
+        './@feature/kanban-board-ngrx/kanban-board-ngrx.component'
+      ).then((x) => x.KanbanBoardNgrxComponent),
+  },
 
   //   {
   //     path: '**',

@@ -7,3 +7,6 @@
 3. ng add @angular/material
 
 4. npm install @angular/cdk
+
+5.npm install @ngrx/store @ngrx/effects @ngrx/entity @ngrx/store-devtools
+

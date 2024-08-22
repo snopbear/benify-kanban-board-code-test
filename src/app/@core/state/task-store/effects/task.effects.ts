@@ -1,0 +1,62 @@
+import { Injectable } from '@angular/core';
+import { Actions, createEffect, ofType } from '@ngrx/effects';
+import { TaskService } from '@services-common/task/task.service';
+import * as TaskActions from './../actions/task.actions';
+import { map, mergeMap, catchError } from 'rxjs/operators';
+import { of } from 'rxjs';
+
+@Injectable()
+export class TaskEffects {
+  constructor(private actions$: Actions, private taskService: TaskService) {}
+
+  loadTasks$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(TaskActions.loadTasks),
+      mergeMap(() =>
+        this.taskService.getAllTasks().pipe(
+          map((tasks) => TaskActions.loadTasksSuccess({ tasks })),
+          catchError(() => of({ type: '[Task] Load Tasks Failed' }))
+        )
+      )
+    )
+  );
+
+  addTask$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(TaskActions.addTask),
+      mergeMap((action) =>
+        this.taskService.addTask(action.task).pipe(
+          map((task) => ({ type: '[Task] Add Task Success', task })),
+          catchError(() => of({ type: '[Task] Add Task Failed' }))
+        )
+      )
+    )
+  );
+
+  updateTask$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(TaskActions.updateTask),
+      mergeMap((action) =>
+        this.taskService.updateTask(action.task).pipe(
+          map((task) => ({ type: '[Task] Update Task Success', task })),
+          catchError(() => of({ type: '[Task] Update Task Failed' }))
+        )
+      )
+    )
+  );
+
+  deleteTask$ = createEffect(() =>
+    this.actions$.pipe(
+      ofType(TaskActions.deleteTask),
+      mergeMap((action) =>
+        this.taskService.deleteTask(action.taskId).pipe(
+          map(() => ({
+            type: '[Task] Delete Task Success',
+            taskId: action.taskId,
+          })),
+          catchError(() => of({ type: '[Task] Delete Task Failed' }))
+        )
+      )
+    )
+  );
+}
